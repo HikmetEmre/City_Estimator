@@ -1,0 +1,17 @@
+,Rent,Deposit,Avg_Salary,Job_Opp,Weather,City_Cond,People,Entertainment,Traffic,Population,City
+0,2876,3217,5123,High,Bad,Crowded,Friendly,High,Bad,Low,Dublin
+1,3295,3755,6431,High,Bad,Crowded,Neutral,High,Bad,High,London
+2,2340,2675,6000,Moderate,Moderate,Crowded,Neutral,High,Moderate,High,Berlin
+3,2769,4376,6520,Low,Moderate,Peaceful,Friendly,High,Good,Low,Amsterdam
+4,2215,6051,9943,Low,Bad,Peaceful,Neutral,High,Good,Low,Copenhagen
+5,1433,1430,3583,Moderate,Good,Crowded,Friendly,High,Moderate,Low,Barcelona
+6,2074,2383,5416,Low,Moderate,Peaceful,Neutral,High,Good,Low,Hamburg
+7,1910,2074,2916,High,Good,Peaceful,Friendly,High,Good,Low,Milan
+8,1587,2606,5604,Low,Good,Peaceful,Friendly,Moderate,Good,Low,Luxembourg
+9,1120,2237,5123,High,Bad,Peaceful,Neutral,High,Bad,Low,Brussels
+10,3294,4291,4500,High,Moderate,Crowded,Neutral,High,Bad,High,Paris
+11,1564,1590,7243,Low,Bad,Peaceful,Neutral,Moderate,Good,Low,Stockholm
+12,1390,3690,5102,Low,Bad,Peaceful,Neutral,Moderate,Good,Low,Oslo
+13,2290,2570,6041,Moderate,Moderate,Peaceful,Friendly,High,Bad,Low,Munich
+14,3186,4407,11125,High,Good,Peaceful,Neutral,High,Good,Low,Zurich
+15,1053,1217,1914,Low,Good,Crowded,Friendly,High,Bad,High,Istanbul
