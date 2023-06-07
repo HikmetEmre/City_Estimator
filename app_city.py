@@ -71,13 +71,13 @@ st.sidebar.markdown("**INPUT** Your **:red[Preferences]**  **for Choosing a City
 Rent = st.sidebar.number_input("**Your expected rent cost in Euros.**", min_value=0)
 Deposit = st.sidebar.number_input("**Your expected safety deposit cost in Euros..**", min_value=0)
 Exp_Salary = st.sidebar.number_input("**Your expected salary in Euros.**", min_value=0)
-Job_Opp = st.sidebar.text_input("**Job Oppurtunities :green[High] ,:blue[Moderate], :red[Low] : **")
-Weather = st.sidebar.text_input("**Weather Condition :green[Good] ,:blue[Moderate], :red[Bad] : **")
-City_Cond = st.sidebar.text_input("**Job Oppurtunities :green[High] ,:blue[Moderate], :red[Low] : **")
-People = st.sidebar.text_input("**Job Oppurtunities :green[High] ,:blue[Moderate], :red[Low] : **")
-Entertainment = st.sidebar.text_input("**Job Oppurtunities :green[High] ,:blue[Moderate], :red[Low] : **")
-Traffic = st.sidebar.text_input("**Job Oppurtunities :green[High] ,:blue[Moderate], :red[Low] : **")
-Population = st.sidebar.text_input("**Job Oppurtunities :green[High] ,:blue[Moderate], :red[Low] : **")
+Job_Opp = st.sidebar.text_input("**Job Oppurtunities :green[High] ,:blue[Moderate], :red[Low]**")
+Weather = st.sidebar.text_input("**Weather Condition :green[Good] ,:blue[Moderate], :red[Bad]**")
+City_Cond = st.sidebar.text_input("**Ambiance and Environment :green[Peaceful] or :red[Crowded]**")
+People = st.sidebar.text_input("Attitude of Local People :green[Friendly] or blue[Neutral]**")
+Entertainment = st.sidebar.text_input("** Availablitiy of Activities And Level :green[High] ,:blue[Moderate]**")
+Traffic = st.sidebar.text_input("**Traffic Condition :green[Good], :blue[Moderate], :red[Bad]**")
+Population = st.sidebar.text_input("** Density of residents in city :red[High] or :blue[Low]**")
 
 
 #---------------------------------------------------------------------------------------------------------------------
