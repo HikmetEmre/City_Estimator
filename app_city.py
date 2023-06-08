@@ -95,7 +95,7 @@ Population = st.sidebar.selectbox("Density of Residents in City", population_opt
 user_input = pd.DataFrame({
     'Rent': [Rent],
     'Deposit': [Deposit],
-    'Avg_Salary': [Avg_Salary],
+    'Avg_Salary': [Exp_Salary],
     'Job_Opp': [Job_Opp],
     'Weather': [Weather],
     'City_Cond': [City_Cond],
