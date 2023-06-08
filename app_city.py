@@ -126,9 +126,7 @@ else:
     similar_cities = df.iloc[similar_cities_indices]['City']
 
    
-    recommended_cities = []
-for city in similar_cities:
-    recommended_cities.append(city)
+ recommended_cities = similar_cities.tolist()
 
 result = recommended_cities
 
@@ -176,7 +174,7 @@ if st.sidebar.button("Submit"):
    
 
 
-    st.table(result_df)
+    st.table(results_df)
 
 if result is not None:
     st.table(result)
