@@ -91,35 +91,34 @@ Population = st.sidebar.selectbox("Density of Residents in City", population_opt
 #---------------------------------------------------------------------------------------------------------------------
 
 
-user_input = {
-    'Rent': Rent,
-    'Deposit': Deposit,
-    'Avg_Salary': Exp_Salary,
-    'Job_Opp': Job_Opp,
-    'Weather': Weather,
-    'City_Cond': City_Cond,
-    'People': People,
-    'Entertainment': Entertainment,
-    'Traffic': Traffic,
-    'Population': Population
-}
+user_input = pd.DataFrame({
+    'Rent': [Rent],
+    'Deposit': [Deposit],
+    'Avg_Salary': [Exp_Salary],
+    'Job_Opp': [Job_Opp],
+    'Weather': [Weather],
+    'City_Cond': [City_Cond],
+    'People': [People],
+    'Entertainment': [Entertainment],
+    'Traffic': [Traffic],
+    'Population': [Population]
+})
 
+# Check if user input is complete (no null values)
 if user_input.isnull().any().any():
-       st.write("Please fill in all input fields.")
+    st.write("Please fill in all input fields.")
 else:
-    user_df = pd.DataFrame(user_input, index=[0])
+    # Concatenate user input with the original DataFrame
+    combined_df = pd.concat([df, user_input], ignore_index=True)
 
-# Concatenate user input with the original DataFrame
-combined_df = pd.concat([df, user_df], ignore_index=True)
+    # Perform one-hot encoding on categorical features
+    combined_df_encoded = pd.get_dummies(combined_df)
 
-# Perform one-hot encoding on categorical features
-combined_df_encoded = pd.get_dummies(combined_df, drop_first=True)
+    # Calculate cosine similarity between user input and cities
+    similarity_matrix = cosine_similarity(combined_df_encoded)
 
-# Calculate cosine similarity between user input and cities
-similarity_matrix = cosine_similarity(combined_df_encoded)
-
-# Get the similarity scores for the user input
-user_similarity_scores = similarity_matrix[-1, :-1]
+    # Get the similarity scores for the user input
+    user_similarity_scores = similarity_matrix[-1, :-1]
 
 # Sort the cities based on similarity scores
 similar_cities_indices = user_similarity_scores.argsort()[::-1][:3]
