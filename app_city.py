@@ -105,10 +105,9 @@ user_input = {
 }
 
 if user_input.isnull().any().any():
-    st.write("Please fill in all input fields.")
+       st.write("Please fill in all input fields.")
 else:
-    # Convert user input to a DataFrame
-user_df = pd.DataFrame(user_input, index=[0])
+    user_df = pd.DataFrame(user_input, index=[0])
 
 # Concatenate user input with the original DataFrame
 combined_df = pd.concat([df, user_df], ignore_index=True)
