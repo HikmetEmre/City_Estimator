@@ -56,6 +56,7 @@ st.image('https://previews.123rf.com/images/muchmaniavector/muchmaniavector1909/
 
 ### Example DF ON STREAMLIT PAGE ###
 df=pd.read_csv("streamlit_app.csv")
+df.drop(columns=['Unnamed: 0'],axis=1,inplace=True)
 
 
 ### Example TABLE ###
