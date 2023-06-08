@@ -125,7 +125,7 @@ else:
     similar_cities_indices = user_similarity_scores.argsort()[::-1][:3]
     similar_cities = df.iloc[similar_cities_indices]['City']
     
-     recommended_cities = []
+    recommended_cities = []
 for city in similar_cities:
     recommended_cities.append(city)
 
