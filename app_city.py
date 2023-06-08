@@ -176,7 +176,7 @@ if st.sidebar.button("Submit"):
    
 
 
-    st.table(result)
+    st.table(result_df)
 
 if result is not None:
     st.table(result)
