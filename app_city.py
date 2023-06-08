@@ -94,7 +94,7 @@ Population = st.sidebar.selectbox("Density of Residents in City", population_opt
 user_input = {
     'Rent': Rent,
     'Deposit': Deposit,
-    'Avg_Salary': Exp_salary,
+    'Avg_Salary': Exp_Salary,
     'Job_Opp': Job_opp,
     'Weather': Weather,
     'City_Cond': City_cond,
