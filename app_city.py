@@ -106,10 +106,7 @@ user_input = pd.DataFrame({
     'Population': [Population]
 })
 
-# Check if user input is complete (no null values)
-if user_input.isnull().any().any():
-    st.write("Please fill in all input fields.")
-else:
+
     # Concatenate user input with the original DataFrame
     combined_df = pd.concat([df, user_input], ignore_index=True)
 
