@@ -104,7 +104,10 @@ user_input = {
     'Population': Population
 }
 
-# Convert user input to a DataFrame
+if user_input.isnull().any().any():
+    st.write("Please fill in all input fields.")
+else:
+    # Convert user input to a DataFrame
 user_df = pd.DataFrame(user_input, index=[0])
 
 # Concatenate user input with the original DataFrame
@@ -122,6 +125,7 @@ user_similarity_scores = similarity_matrix[-1, :-1]
 # Sort the cities based on similarity scores
 similar_cities_indices = user_similarity_scores.argsort()[::-1][:3]
 similar_cities = df.iloc[similar_cities_indices]['City']
+    
 
 
 recommended_cities = []
