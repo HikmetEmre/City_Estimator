@@ -91,38 +91,37 @@ Population = st.sidebar.selectbox("Density of Residents in City", population_opt
 #---------------------------------------------------------------------------------------------------------------------
 
 
-user_input = pd.DataFrame({
-    'Rent': [Rent],
-    'Deposit': [Deposit],
-    'Avg_Salary': [Exp_Salary] ,
-    'Job_Opp': [Job_Opp],
-    'Weather': [Weather],
-    'City_Cond': [City_Cond],
-    'People': [People],
-    'Entertainment': [Entertainment],
-    'Traffic': [Traffic],
-    'Population': [Population],
-  })
-    
-# Check if user input is empty
-if user_input.empty:
-    st.write("Please fill in the required information.")
-else:
-    # Concatenate user input with the original DataFrame
-    combined_df = pd.concat([df, user_input], ignore_index=True)
+user_input = {
+    'Rent': Rent,
+    'Deposit': Deposit,
+    'Avg_Salary': Exp_salary,
+    'Job_Opp': Job_opp,
+    'Weather': Weather,
+    'City_Cond': City_cond,
+    'People': People,
+    'Entertainment': Entertainment,
+    'Traffic': Traffic,
+    'Population': Population
+}
 
-    # Perform one-hot encoding on categorical features
-    combined_df_encoded = pd.get_dummies(combined_df, drop_first=True)
+# Convert user input to a DataFrame
+user_df = pd.DataFrame(user_input, index=[0])
 
-    # Calculate cosine similarity between user input and cities
-    similarity_matrix = cosine_similarity(combined_df_encoded)
+# Concatenate user input with the original DataFrame
+combined_df = pd.concat([df, user_df], ignore_index=True)
 
-    # Get the similarity scores for the user input
-    user_similarity_scores = similarity_matrix[-1, :-1]
+# Perform one-hot encoding on categorical features
+combined_df_encoded = pd.get_dummies(combined_df, drop_first=True)
 
-    # Sort the cities based on similarity scores
-    similar_cities_indices = user_similarity_scores.argsort()[::-1][:3]
-    similar_cities = df.iloc[similar_cities_indices]['City']
+# Calculate cosine similarity between user input and cities
+similarity_matrix = cosine_similarity(combined_df_encoded)
+
+# Get the similarity scores for the user input
+user_similarity_scores = similarity_matrix[-1, :-1]
+
+# Sort the cities based on similarity scores
+similar_cities_indices = user_similarity_scores.argsort()[::-1][:3]
+similar_cities = df.iloc[similar_cities_indices]['City']
 
 
 recommended_cities = []
@@ -157,7 +156,7 @@ if st.sidebar.button("Submit"):
     'Time': [time],
     'Rent': [Rent],
     'Deposit': [Deposit],
-    'Avg_Salary': [Exp_Salary] ,
+    'Exp_Salary': [Exp_Salary] ,
     'Job_Opp': [Job_Opp],
     'Weather': [Weather],
     'City_Cond': [City_Cond],
