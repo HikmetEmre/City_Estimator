@@ -106,7 +106,9 @@ user_input = pd.DataFrame({
     'Population': [Population]
 })
 
-
+if user_input.isnull().any().any():
+    st.write("Please fill in all input fields.")
+else:
     # Concatenate user input with the original DataFrame
     combined_df = pd.concat([df, user_input], ignore_index=True)
 
@@ -122,7 +124,8 @@ user_input = pd.DataFrame({
     # Sort the cities based on similarity scores
     similar_cities_indices = user_similarity_scores.argsort()[::-1][:3]
     similar_cities = df.iloc[similar_cities_indices]['City']
-    
+
+   
     recommended_cities = []
 for city in similar_cities:
     recommended_cities.append(city)
