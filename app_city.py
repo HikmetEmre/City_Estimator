@@ -91,10 +91,11 @@ Population = st.sidebar.selectbox("Density of Residents in City", population_opt
 #---------------------------------------------------------------------------------------------------------------------
 
 
+# Create user input DataFrame
 user_input = pd.DataFrame({
     'Rent': [Rent],
     'Deposit': [Deposit],
-    'Avg_Salary': [Exp_Salary],
+    'Avg_Salary': [Avg_Salary],
     'Job_Opp': [Job_Opp],
     'Weather': [Weather],
     'City_Cond': [City_Cond],
@@ -112,7 +113,7 @@ else:
     combined_df = pd.concat([df, user_input], ignore_index=True)
 
     # Perform one-hot encoding on categorical features
-    combined_df_encoded = pd.get_dummies(combined_df)
+    combined_df_encoded = pd.get_dummies(combined_df, drop_first=True)
 
     # Calculate cosine similarity between user input and cities
     similarity_matrix = cosine_similarity(combined_df_encoded)
@@ -120,10 +121,11 @@ else:
     # Get the similarity scores for the user input
     user_similarity_scores = similarity_matrix[-1, :-1]
 
-# Sort the cities based on similarity scores
-similar_cities_indices = user_similarity_scores.argsort()[::-1][:3]
-similar_cities = df.iloc[similar_cities_indices]['City']
-    
+    # Sort the cities based on similarity scores
+    similar_cities_indices = user_similarity_scores.argsort()[::-1][:3]
+    similar_cities = df.iloc[similar_cities_indices]['City']
+
+  
 
 
 recommended_cities = []
