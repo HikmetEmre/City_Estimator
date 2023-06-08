@@ -67,17 +67,25 @@ st.table(df.sample(5, random_state=17))
 ### Sidebar Markdown ###
 st.sidebar.markdown("**INPUT** Your **:red[Preferences]**  **for Choosing a City to Live In**")
 
-### Define Sidebar Input's ###
-Rent = st.sidebar.number_input("**Your expected rent cost in Euros.**", min_value=0)
-Deposit = st.sidebar.number_input("**Your expected safety deposit cost in Euros..**", min_value=0)
-Exp_Salary = st.sidebar.number_input("**Your expected salary in Euros.**", min_value=0)
-Job_Opp = st.sidebar.text_input("**Job Oppurtunities :green[High] ,:blue[Moderate], :red[Low]**")
-Weather = st.sidebar.text_input("**Weather Condition :green[Good] ,:blue[Moderate], :red[Bad]**")
-City_Cond = st.sidebar.text_input("**Ambiance and Environment :green[Peaceful] or :red[Crowded]**")
-People = st.sidebar.text_input("Attitude of Local People :green[Friendly] or blue[Neutral]**")
-Entertainment = st.sidebar.text_input("** Availablitiy of Activities And Level :green[High] ,:blue[Moderate]**")
-Traffic = st.sidebar.text_input("**Traffic Condition :green[Good], :blue[Moderate], :red[Bad]**")
-Population = st.sidebar.text_input("** Density of residents in city :red[High] or :blue[Low]**")
+# Define Sidebar Inputs
+job_opp_options = ['High', 'Moderate', 'Low']
+weather_options = ['Good', 'Moderate', 'Bad']
+city_cond_options = ['Peaceful', 'Crowded']
+people_options = ['Friendly', 'Neutral']
+entertainment_options = ['High', 'Moderate']
+traffic_options = ['Good', 'Moderate', 'Bad']
+population_options = ['High', 'Low']
+
+Rent = st.sidebar.number_input("Your expected rent cost in Euros.", min_value=0)
+Deposit = st.sidebar.number_input("Your expected safety deposit cost in Euros.", min_value=0)
+Exp_Salary = st.sidebar.number_input("Your expected salary in Euros.", min_value=0)
+Job_Opp = st.sidebar.selectbox("Job Opportunities", job_opp_options)
+Weather = st.sidebar.selectbox("Weather Condition", weather_options)
+City_Cond = st.sidebar.selectbox("Ambiance and Environment", city_cond_options)
+People = st.sidebar.selectbox("Attitude of Local People", people_options)
+Entertainment = st.sidebar.selectbox("Availability of Activities and Level", entertainment_options)
+Traffic = st.sidebar.selectbox("Traffic Condition", traffic_options)
+Population = st.sidebar.selectbox("Density of Residents in City", population_options)
 
 
 #---------------------------------------------------------------------------------------------------------------------
